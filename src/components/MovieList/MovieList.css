@@ -1,0 +1,72 @@
+.movies-list {
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding: 0 17.5px 0 17.5px; */
+}
+.ant-row-middle {
+    padding: 0 17.5px 0 17.5px;
+}
+.ant-card .ant-card-body {
+    padding: 0;
+}
+.ant-rate {
+    position: absolute;
+    bottom: 15px;
+}
+.ant-card {
+    height: 280px;
+    box-sizing: border-box;
+    border-radius: 0;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+}
+.poster {
+    width: 30%;
+    height: 279px;
+    border-radius: 0;
+}
+.card {
+    display: flex;
+    align-items: top;
+    /* justify-content: space-between; */
+}
+.card-body {
+    width: 70%;
+    padding: 10px 10px 0 20px;
+}
+.card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.card-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.bad {
+    border: 2px solid #e90000;
+}
+.normal {
+    border: 2px solid #e97e00;
+}
+.good {
+    border: 2px solid #e9d100;
+}
+.wonderful {
+    border: 2px solid #66e900;
+}
+.card-ganre {
+    margin-top: 10px;
+}
+.card-description {
+    margin-top: 10px;
+}
+.errors {
+    margin-top: 35px;
+}

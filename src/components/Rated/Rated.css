@@ -1,0 +1,7 @@
+.rated-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 35px 0 35px 0;
+}

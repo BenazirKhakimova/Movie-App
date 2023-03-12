@@ -4,7 +4,13 @@
         "es2021": true,
         "node": true
     },
-    "extends": ["plugin:react/recommended", "airbnb"],
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
+    ],
     "overrides": [],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,11 +24,25 @@
         "indent": ["error", 4],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
+        "react/jsx-wrap-multilines": "off",
         "semi": 0,
         "comma-dangle": 0,
-        "prettier/prettier": "error",
+        "no-unused-vars": "warn",
+        "object-curly-newline": "off",
+        "arrow-body-style": "off",
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "linebreak-style": "off",
+        "no-underscore-dangle": "off",
+        "useTabs": 0,
+        "react/no-unused-state": "warn",
+        "react/state-in-constructor": "off",
+        "react/prop-types": "off",
+        "camelcase": "off",
+        "class-methods-use-this": "off",
+        "no-nested-ternary": "off"
     },
     "settings": {
         "version": "detect",
@@ -34,3 +54,4 @@
         }
     }
 }
+
