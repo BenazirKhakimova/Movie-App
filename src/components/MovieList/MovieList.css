@@ -9,13 +9,17 @@
 .ant-row-middle {
     padding: 0 17.5px 0 17.5px;
 }
-.ant-card .ant-card-body {
+.ant-card .ant-card-body,
+.card-description {
     padding: 0;
 }
-.ant-rate {
-    position: absolute;
-    bottom: 15px;
+@media screen and (max-width: 985px) {
+    .ant-card .ant-card-body,
+    .card-description {
+        padding: 10px;
+    }
 }
+
 .ant-card {
     height: 280px;
     box-sizing: border-box;
@@ -27,19 +31,44 @@
     height: 279px;
     border-radius: 0;
 }
+@media screen and (max-width: 985px) {
+    .poster {
+        height: 128px;
+        width: 90px;
+    }
+}
+@media screen and (max-width: 780px) {
+    .poster {
+        height: 90px;
+        width: 60px;
+    }
+}
 .card {
     display: flex;
     align-items: top;
-    /* justify-content: space-between; */
 }
 .card-body {
     width: 70%;
     padding: 10px 10px 0 20px;
 }
+@media screen and (max-width: 985px) {
+    .card-body {
+        width: 100%;
+        padding: 0;
+        padding-left: 10px;
+    }
+}
 .card-header {
     width: 100%;
+    height: 65px;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
+}
+@media screen and (max-width: 780px) {
+    .card-header {
+        height: 35px;
+    }
 }
 .card-rating {
     display: flex;
@@ -48,6 +77,48 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
+}
+.card-rate {
+    position: absolute;
+    left: 35%;
+    bottom: 15px;
+}
+@media screen and (max-width: 985px) {
+    .card-rate {
+        left: unset;
+        right: 15px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .ant-rate .ant-rate-star:not(:last-child) {
+        margin-inline-end: 2px;
+    }
+}
+.card-ganre {
+    margin-top: 10px;
+    white-space: nowrap;
+}
+.card-description {
+    margin-top: 10px;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    right: 10px;
+}
+@media screen and (max-width: 985px) {
+    .card-description {
+        left: 0;
+    }
+}
+@media screen and (max-width: 780px) {
+    .card-description {
+        top: 40%;
+    }
+}
+@media screen and (max-width: 380px) {
+    .card-description {
+        top: 35%;
+    }
 }
 .bad {
     border: 2px solid #e90000;
@@ -60,12 +131,6 @@
 }
 .wonderful {
     border: 2px solid #66e900;
-}
-.card-ganre {
-    margin-top: 10px;
-}
-.card-description {
-    margin-top: 10px;
 }
 .errors {
     margin-top: 35px;

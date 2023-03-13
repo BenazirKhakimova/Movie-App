@@ -39,7 +39,7 @@ const MoveiList = ({ error }) => {
                             <div className="movies-list">
                                 <Row
                                     style={{ width: '100%' }}
-                                    gutter={[35, 35]}
+                                    gutter={{ xs: 16, sm: 36 }}
                                     align="middle"
                                     justify="space-between"
                                     wrap

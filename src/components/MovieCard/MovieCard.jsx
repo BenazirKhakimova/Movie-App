@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useRef } from 'react'
-import { Card, Col, Rate, Typography } from 'antd'
+import { Card, Col, Rate, Tooltip, Typography } from 'antd'
 import { format } from 'date-fns'
 import classNames from 'classnames'
 // import Rating from '../Rating/Rating'
@@ -25,6 +25,7 @@ const MovieCard = ({ movies, id }) => {
 
     const cutOverviews = (str, count) => {
         const splited = str.split(' ')
+        console.log(splited)
         if (splited.length > count) {
             return `${splited.slice(0, count).join(' ')}...`
         }
@@ -56,7 +57,13 @@ const MovieCard = ({ movies, id }) => {
                     })
                 })
                 return (
-                    <Col xs={{ span: 24 }} md={{ span: 12 }} xxl={{ span: 8 }}>
+                    <Col
+                        xs={{ span: 24 }}
+                        md={{ span: 12 }}
+                        lg={{ span: 12 }}
+                        xxl={8}
+                        style={{ paddingBottom: '36px' }}
+                    >
                         <Card bordered hoverable>
                             <div className="card">
                                 <img
@@ -70,9 +77,11 @@ const MovieCard = ({ movies, id }) => {
                                 />
                                 <div className="card-body">
                                     <div className="card-header">
-                                        <Title style={{ marginTop: 0, width: '90%' }} level={3}>
-                                            {title}
-                                        </Title>
+                                        <Tooltip title={title}>
+                                            <Title style={{ margin: 0, width: '90%' }} level={3}>
+                                                {title}
+                                            </Title>
+                                        </Tooltip>
                                         <div className={ratingColor}>{vote_average.toFixed(1)}</div>
                                     </div>
 
@@ -81,18 +90,17 @@ const MovieCard = ({ movies, id }) => {
                                     </div>
 
                                     <div className="card-ganre">{movieGenres}</div>
-
-                                    <div className="card-description">
-                                        <Paragraph style={{ margin: 0 }}>{cutedOverview}</Paragraph>
-                                    </div>
-                                    <div>
-                                        <Rate
-                                            count={10}
-                                            allowHalf
-                                            value={rating || ratingValue}
-                                            onChange={(value) => onChangeRating(value, id)}
-                                        />
-                                    </div>
+                                </div>
+                                <div className="card-description">
+                                    <Paragraph style={{ margin: 0 }}>{cutedOverview}</Paragraph>
+                                </div>
+                                <div className="card-rate">
+                                    <Rate
+                                        count={10}
+                                        allowHalf
+                                        value={rating || ratingValue}
+                                        onChange={(value) => onChangeRating(value, id)}
+                                    />
                                 </div>
                             </div>
                         </Card>
