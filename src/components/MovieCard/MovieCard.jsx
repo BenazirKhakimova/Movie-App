@@ -88,17 +88,17 @@ const MovieCard = ({ movies, id }) => {
                                     </div>
 
                                     <div className="card-ganre">{movieGenres}</div>
-                                </div>
-                                <div className="card-description">
-                                    <Paragraph style={{ margin: 0 }}>{cutedOverview}</Paragraph>
-                                </div>
-                                <div className="card-rate">
-                                    <Rate
-                                        count={10}
-                                        allowHalf
-                                        value={rating || ratingValue}
-                                        onChange={(value) => onChangeRating(value, id)}
-                                    />
+                                    <div className="card-description">
+                                        <Paragraph style={{ margin: 0 }}>{cutedOverview}</Paragraph>
+                                    </div>
+                                    <div className="card-rate">
+                                        <Rate
+                                            count={10}
+                                            allowHalf
+                                            value={rating || ratingValue}
+                                            onChange={(value) => onChangeRating(value, id)}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </Card>
