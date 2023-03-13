@@ -3,7 +3,6 @@ import React, { useRef } from 'react'
 import { Card, Col, Rate, Tooltip, Typography } from 'antd'
 import { format } from 'date-fns'
 import classNames from 'classnames'
-// import Rating from '../Rating/Rating'
 import { MovieConsumer } from '../movieContext'
 
 const { Text, Title, Paragraph } = Typography
@@ -25,7 +24,6 @@ const MovieCard = ({ movies, id }) => {
 
     const cutOverviews = (str, count) => {
         const splited = str.split(' ')
-        console.log(splited)
         if (splited.length > count) {
             return `${splited.slice(0, count).join(' ')}...`
         }
