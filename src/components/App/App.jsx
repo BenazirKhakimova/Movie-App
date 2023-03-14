@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Component, PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import debounce from 'lodash.debounce'
 import CheckInternetConection from '../CheckInternetConection/CheckInternetConection'
 import MovieTabs from '../MovieTabs/MovieTabs'
-import './App.css'
 import MoviesDB from '../../moviesDB'
-import { MovieProvider } from '../movieContext/movieContext'
+import { MovieProvider } from '../../movieContext/movieContext'
+import './App.css'
 
 export default class App extends PureComponent {
     moviesDB = new MoviesDB()
@@ -33,6 +33,10 @@ export default class App extends PureComponent {
         if (prevState.searchTerm !== this.state.searchTerm) {
             this.onSearchMovie()
         }
+    }
+
+    componentDidCatch(error) {
+        this.setState({ error })
     }
 
     handleSearchTermChange = (e) => {

@@ -6,8 +6,8 @@ import './MovieList.css'
 import Spinner from '../Spinner/Spinner'
 import Error from '../Error/Error'
 import SearchBar from '../SearchBar/SearchBar'
-import { MovieConsumer } from '../movieContext'
-import Pagination from '../Pagination/_Pagination'
+import { MovieConsumer } from '../../movieContext'
+import Pagination from '../Pagination/Pagination'
 
 const MoveiList = ({ error }) => {
     if (error) {

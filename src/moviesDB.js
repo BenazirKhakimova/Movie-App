@@ -8,22 +8,14 @@ export default class MoviesDB {
     _language = 'en-US'
 
     getResponse = async (search, page = 1) => {
-        try {
-            const res = await fetch(
-                `${this._database}&query=${search}&language=${this._language}&page=${page}`,
-            )
-            if (!res.ok) {
-                throw new Error(
-                    'Network response was not ok. If it keeps happening please contact us.',
-                )
-            }
-            const data = await res.json()
-            return data
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.log(error)
-            throw error
+        const res = await fetch(
+            `${this._database}&query=${search}&language=${this._language}&page=${page}`,
+        )
+        if (!res.ok) {
+            throw new Error('Network response was not ok. If it keeps happening please contact us.')
         }
+        const data = await res.json()
+        return data
     }
 
     getGenre = async () => {
@@ -35,44 +27,29 @@ export default class MoviesDB {
     }
 
     postRating = async (value, id) => {
-        try {
-            const res = await fetch(
-                `https://api.themoviedb.org/3/movie/${id}/rating?api_key=${this._apiKey}&guest_session_id=${this._guestSessionId}`,
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json;charset=utf-8' },
-                    body: JSON.stringify({
-                        value,
-                    }),
-                },
-            )
-            if (!res.ok) {
-                throw new Error(
-                    'Network response was not ok. If it keeps happening please contact us.',
-                )
-            }
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.message)
+        const res = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}/rating?api_key=${this._apiKey}&guest_session_id=${this._guestSessionId}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json;charset=utf-8' },
+                body: JSON.stringify({
+                    value,
+                }),
+            },
+        )
+        if (!res.ok) {
+            throw new Error('Network response was not ok. If it keeps happening please contact us.')
         }
     }
 
     getRating = async (page = 1) => {
-        try {
-            const res = await fetch(
-                `https://api.themoviedb.org/3/guest_session/${this._guestSessionId}/rated/movies?api_key=${this._apiKey}&language=${this._language}&sort_by=created_at.desc&page=${page}`,
-            )
-            if (!res.ok) {
-                throw new Error(
-                    'Network response was not ok. If it keeps happening please contact us.',
-                )
-            }
-            const data = await res.json()
-            return data
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.log(error)
-            throw error
+        const res = await fetch(
+            `https://api.themoviedb.org/3/guest_session/${this._guestSessionId}/rated/movies?api_key=${this._apiKey}&language=${this._language}&sort_by=created_at.desc&page=${page}`,
+        )
+        if (!res.ok) {
+            throw new Error('Network response was not ok. If it keeps happening please contact us.')
         }
+        const data = await res.json()
+        return data
     }
 }

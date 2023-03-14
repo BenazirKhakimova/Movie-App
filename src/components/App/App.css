@@ -11,7 +11,7 @@
     margin-right: 35px;
 }
 @media screen and (max-width: 576px) {
-    .container{
+    .container {
         margin-left: 16px;
         margin-right: 16px;
     }

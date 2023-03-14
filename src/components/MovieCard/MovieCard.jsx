@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useRef } from 'react'
+import React from 'react'
 import { Card, Col, Rate, Tooltip, Typography } from 'antd'
 import { format } from 'date-fns'
 import classNames from 'classnames'
-import { MovieConsumer } from '../movieContext'
+import { MovieConsumer } from '../../movieContext'
+import imgNoFound from '../../images/image-not-found.jpg'
 
 const { Text, Title, Paragraph } = Typography
 
@@ -64,15 +65,17 @@ const MovieCard = ({ movies, id }) => {
                     >
                         <Card bordered hoverable>
                             <div className="card">
-                                <img
-                                    className="poster"
-                                    src={
-                                        poster_path === null
-                                            ? `https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found.jpg`
-                                            : `https://image.tmdb.org/t/p/original${poster_path}`
-                                    }
-                                    alt="poster"
-                                />
+                                <div className="card-poster-wrapper">
+                                    <img
+                                        className="card-poster"
+                                        src={
+                                            poster_path === null
+                                                ? imgNoFound
+                                                : `https://image.tmdb.org/t/p/original${poster_path}`
+                                        }
+                                        alt="poster"
+                                    />
+                                </div>
                                 <div className="card-body">
                                     <div className="card-header">
                                         <Tooltip title={title}>

@@ -2,9 +2,9 @@
 import React, { PureComponent } from 'react'
 import { Row } from 'antd'
 import MovieCard from '../MovieCard/MovieCard'
-import { MovieConsumer } from '../movieContext'
+import { MovieConsumer } from '../../movieContext'
 import './Rated.css'
-import Pagination from '../Pagination/_Pagination'
+import Pagination from '../Pagination/Pagination'
 import Spinner from '../Spinner/Spinner'
 
 class Rated extends PureComponent {

@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-import { Pagination } from 'antd'
+import { Pagination as AntPagination } from 'antd'
 import './Pagination.css'
 
-const _Pagination = ({ handlePaginationChange, currentPage, totalResults }) => {
+const Pagination = ({ handlePaginationChange, currentPage, totalResults }) => {
     return (
         <div className="container pagination">
-            <Pagination
+            <AntPagination
                 defaultCurrent={1}
                 pageSize={20}
                 current={currentPage}
@@ -19,4 +19,4 @@ const _Pagination = ({ handlePaginationChange, currentPage, totalResults }) => {
     )
 }
 
-export default _Pagination
+export default Pagination

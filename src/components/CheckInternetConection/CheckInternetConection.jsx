@@ -1,29 +1,43 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { Component } from 'react'
 import { Alert } from 'antd'
-import { Detector } from 'react-detect-offline'
 import './CheckInternetConection.css'
 
-const CheckInternetConection = (props) => {
-    return (
-        <Detector
-            render={({ online }) =>
-                online ? (
-                    // eslint-disable-next-line react/destructuring-assignment
-                    props.children
-                ) : (
-                    <div className="offline">
-                        <Alert
-                            message="Warning"
-                            description="You are offline. Please check your internet connection"
-                            type="warning"
-                            showIcon
-                        />
-                    </div>
-                )
-            }
-        />
-    )
+class CheckInternetConection extends Component {
+    state = {
+        online: navigator.onLine,
+    }
+
+    componentDidMount() {
+        window.addEventListener('online', this.handleOnlineStatus)
+        window.addEventListener('offline', this.handleOnlineStatus)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('online', this.handleOnlineStatus)
+        window.removeEventListener('offline', this.handleOnlineStatus)
+    }
+
+    handleOnlineStatus = () => {
+        this.setState({ online: navigator.onLine })
+    }
+
+    render() {
+        const { online } = this.state
+        const { children } = this.props
+        return online ? (
+            children
+        ) : (
+            <div className="offline">
+                <Alert
+                    message="Warning"
+                    description="You are offline. Please check your internet connection"
+                    type="warning"
+                    showIcon
+                />
+            </div>
+        )
+    }
 }
 
 export default CheckInternetConection

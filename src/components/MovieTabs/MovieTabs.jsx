@@ -8,12 +8,12 @@ import Rated from '../Rated/Rated'
 const MovieTabs = ({ error, getRatedMovies }) => {
     const items = [
         {
-            key: '1',
+            key: 'Search',
             label: `Search`,
             children: <MovieList error={error} />,
         },
         {
-            key: '2',
+            key: 'Rated',
             label: `Rated`,
             children: <Rated getRatedMovies={getRatedMovies} />,
         },
